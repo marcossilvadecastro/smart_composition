@@ -1,0 +1,18 @@
+R_DEF: Internal format may change without notice
+local
+array android_wear_capabilities
+drawable ic_launcher
+drawable photo_placeholder
+string app_name
+string capability_changed
+string captured_photo
+string connected_nodes
+string data_item_changed
+string data_item_deleted
+string data_item_unknown
+string message
+string no_device
+string photo_placeholder
+string query_mobile_camera
+string query_other_devices
+string waiting

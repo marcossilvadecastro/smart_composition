@@ -1,0 +1,16 @@
+R_DEF: Internal format may change without notice
+local
+array android_wear_capabilities
+drawable ic_content_picture
+drawable ic_launcher
+string app_name
+string capability_changed
+string captured_photo
+string data_item_changed
+string data_item_deleted
+string data_item_unknown
+string message_from_watch
+string photo_placeholder
+string send_photo
+string start_wearable_activity
+string take_photo

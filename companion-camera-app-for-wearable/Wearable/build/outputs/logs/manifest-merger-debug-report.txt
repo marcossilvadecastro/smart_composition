@@ -1,0 +1,438 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:17:1-79:12
+INJECTED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:17:1-79:12
+INJECTED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:17:1-79:12
+INJECTED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:17:1-79:12
+MERGED from [androidx.activity:activity:1.8.0] C:\Users\elvis\.gradle\caches\transforms-3\51101fef4ded29d780cfe76af0b3127d\transformed\jetified-activity-1.8.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.wear.compose:compose-material-core:1.2.0] C:\Users\elvis\.gradle\caches\transforms-3\1a1fb0fc61ee2cb434442ce439383caf\transformed\jetified-compose-material-core-1.2.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.wear.compose:compose-foundation:1.2.0] C:\Users\elvis\.gradle\caches\transforms-3\5e413d5590a61a5ede2a28bae0240d08\transformed\jetified-compose-foundation-1.2.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.wear.compose:compose-material:1.2.0] C:\Users\elvis\.gradle\caches\transforms-3\a4d5cbb4ac04f4d97997fe8559ecd2cd\transformed\jetified-compose-material-1.2.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\df1e2bab03bad9da06df0042bf92ac29\transformed\jetified-foundation-layout-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-core-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\a8da970d89878cf44926c81382525bc2\transformed\jetified-animation-core-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\6f9fe86609125391ed4fffca171b9fad\transformed\jetified-animation-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-unit-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\900af3efb18ae7299cd676873ef6fe73\transformed\jetified-ui-unit-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-graphics-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\da2efaef5cd1fabf7d6eedd871d1fc4b\transformed\jetified-ui-graphics-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-geometry-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\f1a9e3b6dcc501c57ce25eb262c485ee\transformed\jetified-ui-geometry-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\bc9cb74a0622ddb2dee46f916cec3dce\transformed\jetified-ui-tooling-preview-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\5dc49c9886c821f47fb7859055538863\transformed\jetified-ui-tooling-data-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-util-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\dde82a05006c0ee1e7c81be6aef4056c\transformed\jetified-ui-util-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-text-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\0d6534604c81d4cf2643a2f40f8de80f\transformed\jetified-ui-text-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\4705f2f1f1a48cf17778d8b335cd6cf7\transformed\jetified-ui-tooling-release\AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.compose.material:material-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\6c2b2eaee2b9f4a798cebd5e4bc68acd\transformed\jetified-material-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-core-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\047abd570717757faada193d9177a040\transformed\jetified-material-icons-core-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-ripple-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\1bee0359cc2d8972d98dc54ff8b7545e\transformed\jetified-material-ripple-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\ba347ca25396864bb3101c2d4b786154\transformed\jetified-foundation-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\feca845752c2b423e3e48fefcf9f1ebf\transformed\jetified-ui-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity-ktx:1.8.0] C:\Users\elvis\.gradle\caches\transforms-3\5b5ae009aa5b829d690371cc233c1109\transformed\jetified-activity-ktx-1.8.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity-compose:1.8.0] C:\Users\elvis\.gradle\caches\transforms-3\9383651cf4ace650a49b7d6b07630407\transformed\jetified-activity-compose-1.8.0\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-wearable:18.1.0] C:\Users\elvis\.gradle\caches\transforms-3\0e9fe36d52182fa7a91e01e63523838e\transformed\jetified-play-services-wearable-18.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\elvis\.gradle\caches\transforms-3\a954d08b9dc783ac6d49892999b4d603\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:16:1-24:12
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\424dc5c98f0d6813b10f5b0e46cdd88d\transformed\jetified-runtime-saveable-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\4eb55d646f597f73353d9bfa1f276591\transformed\jetified-runtime-release\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-tasks:18.0.1] C:\Users\elvis\.gradle\caches\transforms-3\0c98808f5d6b7f1a7f38f3ade9f2b340\transformed\jetified-play-services-tasks-18.0.1\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\elvis\.gradle\caches\transforms-3\968e3f63c019edac6ab00343e3722e64\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:16:1-26:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\99e61e8db7dcbe59fc5b8a261a32c87b\transformed\jetified-customview-poolingcontainer-1.0.0\AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.core:core-ktx:1.10.0] C:\Users\elvis\.gradle\caches\transforms-3\d311fd0c8b04fe4094c29d46805fd2a2\transformed\jetified-core-ktx-1.10.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\d499fb22bfa6c8e7c4df9f06d05e9731\transformed\fragment-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.emoji2:emoji2:1.4.0] C:\Users\elvis\.gradle\caches\transforms-3\3e11cea6592bed0a8857ff06467e5e15\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\926c1a464dce2fae8212c17b11837f4a\transformed\jetified-autofill-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\af6766f33b6b4a9acf54dc37b42eb13f\transformed\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\8265c245c6afff66777b3622c7fcfb19\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\d23831a4f802fee28e5bac33f2f06f55\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\72a2e709a30c822fdfd23a94ecb69906\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\394a7c463284cb2f0b9a77fd40f828e0\transformed\coordinatorlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\33d192275e0f57e42ddf099cd9f9742f\transformed\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\7309a71049fb7c8a752b25753e6a38b1\transformed\slidingpanelayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\cd54d2b6188785b7286c9030a8ec56c1\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\85d4732f2b8a91f12eac815b0185ed2b\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\87c09349242d867101acc5b10ea81bdd\transformed\asynclayoutinflater-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.10.0] C:\Users\elvis\.gradle\caches\transforms-3\3a7dc360fa31fd08a77468c1f06dc45c\transformed\core-1.10.0\AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\189c843ad152bc872197069ce0d04b14\transformed\lifecycle-livedata-2.6.2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\a25ba43e79045fcb7a5dd55323f81e05\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\a4fa600c4a3edd171bcb93a0b8843018\transformed\lifecycle-runtime-2.6.2\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\aa73122b54b6f65ce11ac1968628cc04\transformed\lifecycle-livedata-core-2.6.2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\b523595b84f92f8624c8eb04a1e02e42\transformed\jetified-lifecycle-runtime-ktx-2.6.2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\elvis\.gradle\caches\transforms-3\e11efabd5d7f8e649d71a3985a6f000b\transformed\jetified-savedstate-ktx-1.2.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\elvis\.gradle\caches\transforms-3\27948fdc25c58ace68afe5446ffb2d4c\transformed\jetified-savedstate-1.2.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\e9347ba76fcfed4294fcb34693552cc6\transformed\jetified-lifecycle-viewmodel-savedstate-2.6.2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\8d275dd39b0696aea227eeb54871beb2\transformed\lifecycle-viewmodel-2.6.2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\64b0def327625a8345e2afcb114c55ce\transformed\jetified-lifecycle-viewmodel-compose-2.6.2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\4d42cb9ae46eec7cc8d441cdef36d37d\transformed\jetified-lifecycle-viewmodel-ktx-2.6.2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\ec036be5f687d0b82cda868c1b1b6f3d\transformed\jetified-annotation-experimental-1.3.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\elvis\.gradle\caches\transforms-3\a97c9dbe9457db3f4121fb6ee58d1f31\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\f4e1843d90033ea0c068d674e4acbfc2\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\elvis\.gradle\caches\transforms-3\102a20012d53cc273426e12e49dd4195\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\a949ec839006ce24a5448b0fa675dd49\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\elvis\.gradle\caches\transforms-3\c6a0e08b9d51d8f8457afe1038a8e051\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\872d52598a70a293b590d74ec5bd0249\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\7a056ea5f7fba9ce54994cf833622075\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\8dccbf1e5ca719e1f2b31eb2f665b7a6\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\ab6ce99d7fcc9f32475ee0ccee25c61f\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
+	package
+		ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:18:5-53
+		INJECTED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:17:11-69
+uses-feature#android.hardware.type.watch
+ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:20:5-64
+	android:name
+		ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:20:19-61
+application
+ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:22:5-78:19
+INJECTED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:22:5-78:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\4705f2f1f1a48cf17778d8b335cd6cf7\transformed\jetified-ui-tooling-release\AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\4705f2f1f1a48cf17778d8b335cd6cf7\transformed\jetified-ui-tooling-release\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-wearable:18.1.0] C:\Users\elvis\.gradle\caches\transforms-3\0e9fe36d52182fa7a91e01e63523838e\transformed\jetified-play-services-wearable-18.1.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-wearable:18.1.0] C:\Users\elvis\.gradle\caches\transforms-3\0e9fe36d52182fa7a91e01e63523838e\transformed\jetified-play-services-wearable-18.1.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\elvis\.gradle\caches\transforms-3\a954d08b9dc783ac6d49892999b4d603\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\elvis\.gradle\caches\transforms-3\a954d08b9dc783ac6d49892999b4d603\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-tasks:18.0.1] C:\Users\elvis\.gradle\caches\transforms-3\0c98808f5d6b7f1a7f38f3ade9f2b340\transformed\jetified-play-services-tasks-18.0.1\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks:18.0.1] C:\Users\elvis\.gradle\caches\transforms-3\0c98808f5d6b7f1a7f38f3ade9f2b340\transformed\jetified-play-services-tasks-18.0.1\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\elvis\.gradle\caches\transforms-3\968e3f63c019edac6ab00343e3722e64\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:20:5-24:19
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\elvis\.gradle\caches\transforms-3\968e3f63c019edac6ab00343e3722e64\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:20:5-24:19
+MERGED from [androidx.emoji2:emoji2:1.4.0] C:\Users\elvis\.gradle\caches\transforms-3\3e11cea6592bed0a8857ff06467e5e15\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.4.0] C:\Users\elvis\.gradle\caches\transforms-3\3e11cea6592bed0a8857ff06467e5e15\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.10.0] C:\Users\elvis\.gradle\caches\transforms-3\3a7dc360fa31fd08a77468c1f06dc45c\transformed\core-1.10.0\AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.10.0] C:\Users\elvis\.gradle\caches\transforms-3\3a7dc360fa31fd08a77468c1f06dc45c\transformed\core-1.10.0\AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\a25ba43e79045fcb7a5dd55323f81e05\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\a25ba43e79045fcb7a5dd55323f81e05\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\elvis\.gradle\caches\transforms-3\a97c9dbe9457db3f4121fb6ee58d1f31\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\elvis\.gradle\caches\transforms-3\a97c9dbe9457db3f4121fb6ee58d1f31\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\elvis\.gradle\caches\transforms-3\102a20012d53cc273426e12e49dd4195\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\elvis\.gradle\caches\transforms-3\102a20012d53cc273426e12e49dd4195\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+	android:extractNativeLibs
+		INJECTED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.10.0] C:\Users\elvis\.gradle\caches\transforms-3\3a7dc360fa31fd08a77468c1f06dc45c\transformed\core-1.10.0\AndroidManifest.xml:28:18-86
+	android:label
+		ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:26:9-41
+	android:icon
+		ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:25:9-45
+	android:allowBackup
+		ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:23:9-35
+	android:theme
+		ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:27:9-59
+	android:fullBackupOnly
+		ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:24:9-38
+meta-data#com.google.android.wearable.standalone
+ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:29:9-31:37
+	android:value
+		ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:31:13-34
+	android:name
+		ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:30:13-66
+meta-data#com.google.android.gms.version
+ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:33:9-35:69
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\elvis\.gradle\caches\transforms-3\968e3f63c019edac6ab00343e3722e64\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:21:9-23:69
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\elvis\.gradle\caches\transforms-3\968e3f63c019edac6ab00343e3722e64\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:35:13-66
+	android:name
+		ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:34:13-58
+service#com.example.android.wearable.datalayer.DataLayerListenerService
+ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:37:9-63:19
+	android:exported
+		ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:39:13-36
+	android:name
+		ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:38:13-53
+intent-filter#action:name:com.google.android.gms.wearable.DATA_CHANGED+data:host:*+data:pathPrefix:/count+data:scheme:wear
+ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:40:13-47:29
+action#com.google.android.gms.wearable.DATA_CHANGED
+ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:42:17-87
+	android:name
+		ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:42:25-84
+data
+ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:43:17-46:45
+	android:host
+		ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:44:21-37
+	android:scheme
+		ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:46:21-42
+	android:pathPrefix
+		ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:45:21-48
+intent-filter#action:name:com.google.android.gms.wearable.DATA_CHANGED+data:host:*+data:pathPrefix:/coordinate+data:scheme:wear
+ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:48:13-55:29
+intent-filter#action:name:com.google.android.gms.wearable.MESSAGE_RECEIVED+data:host:*+data:pathPrefix:/start-activity+data:scheme:wear
+ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:56:13-62:29
+action#com.google.android.gms.wearable.MESSAGE_RECEIVED
+ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:57:17-91
+	android:name
+		ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:57:25-88
+activity#com.example.android.wearable.datalayer.MainActivity
+ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:64:9-77:20
+	android:exported
+		ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:66:13-36
+	android:taskAffinity
+		ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:67:13-41
+	android:name
+		ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:65:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:69:13-72:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:70:17-69
+	android:name
+		ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:70:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:71:17-77
+	android:name
+		ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:71:27-74
+intent-filter#action:name:com.example.android.wearable.datalayer.EXAMPLE+category:name:android.intent.category.DEFAULT
+ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:73:13-76:29
+action#com.example.android.wearable.datalayer.EXAMPLE
+ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:74:17-89
+	android:name
+		ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:74:25-86
+category#android.intent.category.DEFAULT
+ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:75:17-76
+	android:name
+		ADDED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml:75:27-73
+uses-sdk
+INJECTED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml
+INJECTED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml
+MERGED from [androidx.activity:activity:1.8.0] C:\Users\elvis\.gradle\caches\transforms-3\51101fef4ded29d780cfe76af0b3127d\transformed\jetified-activity-1.8.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.8.0] C:\Users\elvis\.gradle\caches\transforms-3\51101fef4ded29d780cfe76af0b3127d\transformed\jetified-activity-1.8.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.wear.compose:compose-material-core:1.2.0] C:\Users\elvis\.gradle\caches\transforms-3\1a1fb0fc61ee2cb434442ce439383caf\transformed\jetified-compose-material-core-1.2.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.wear.compose:compose-material-core:1.2.0] C:\Users\elvis\.gradle\caches\transforms-3\1a1fb0fc61ee2cb434442ce439383caf\transformed\jetified-compose-material-core-1.2.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.wear.compose:compose-foundation:1.2.0] C:\Users\elvis\.gradle\caches\transforms-3\5e413d5590a61a5ede2a28bae0240d08\transformed\jetified-compose-foundation-1.2.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.wear.compose:compose-foundation:1.2.0] C:\Users\elvis\.gradle\caches\transforms-3\5e413d5590a61a5ede2a28bae0240d08\transformed\jetified-compose-foundation-1.2.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.wear.compose:compose-material:1.2.0] C:\Users\elvis\.gradle\caches\transforms-3\a4d5cbb4ac04f4d97997fe8559ecd2cd\transformed\jetified-compose-material-1.2.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.wear.compose:compose-material:1.2.0] C:\Users\elvis\.gradle\caches\transforms-3\a4d5cbb4ac04f4d97997fe8559ecd2cd\transformed\jetified-compose-material-1.2.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\df1e2bab03bad9da06df0042bf92ac29\transformed\jetified-foundation-layout-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\df1e2bab03bad9da06df0042bf92ac29\transformed\jetified-foundation-layout-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\a8da970d89878cf44926c81382525bc2\transformed\jetified-animation-core-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\a8da970d89878cf44926c81382525bc2\transformed\jetified-animation-core-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\6f9fe86609125391ed4fffca171b9fad\transformed\jetified-animation-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\6f9fe86609125391ed4fffca171b9fad\transformed\jetified-animation-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\900af3efb18ae7299cd676873ef6fe73\transformed\jetified-ui-unit-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\900af3efb18ae7299cd676873ef6fe73\transformed\jetified-ui-unit-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\da2efaef5cd1fabf7d6eedd871d1fc4b\transformed\jetified-ui-graphics-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\da2efaef5cd1fabf7d6eedd871d1fc4b\transformed\jetified-ui-graphics-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\f1a9e3b6dcc501c57ce25eb262c485ee\transformed\jetified-ui-geometry-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\f1a9e3b6dcc501c57ce25eb262c485ee\transformed\jetified-ui-geometry-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\bc9cb74a0622ddb2dee46f916cec3dce\transformed\jetified-ui-tooling-preview-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\bc9cb74a0622ddb2dee46f916cec3dce\transformed\jetified-ui-tooling-preview-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\5dc49c9886c821f47fb7859055538863\transformed\jetified-ui-tooling-data-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\5dc49c9886c821f47fb7859055538863\transformed\jetified-ui-tooling-data-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\dde82a05006c0ee1e7c81be6aef4056c\transformed\jetified-ui-util-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\dde82a05006c0ee1e7c81be6aef4056c\transformed\jetified-ui-util-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\0d6534604c81d4cf2643a2f40f8de80f\transformed\jetified-ui-text-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\0d6534604c81d4cf2643a2f40f8de80f\transformed\jetified-ui-text-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\4705f2f1f1a48cf17778d8b335cd6cf7\transformed\jetified-ui-tooling-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\4705f2f1f1a48cf17778d8b335cd6cf7\transformed\jetified-ui-tooling-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material:material-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\6c2b2eaee2b9f4a798cebd5e4bc68acd\transformed\jetified-material-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\6c2b2eaee2b9f4a798cebd5e4bc68acd\transformed\jetified-material-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\047abd570717757faada193d9177a040\transformed\jetified-material-icons-core-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\047abd570717757faada193d9177a040\transformed\jetified-material-icons-core-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\1bee0359cc2d8972d98dc54ff8b7545e\transformed\jetified-material-ripple-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\1bee0359cc2d8972d98dc54ff8b7545e\transformed\jetified-material-ripple-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\ba347ca25396864bb3101c2d4b786154\transformed\jetified-foundation-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\ba347ca25396864bb3101c2d4b786154\transformed\jetified-foundation-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\feca845752c2b423e3e48fefcf9f1ebf\transformed\jetified-ui-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\feca845752c2b423e3e48fefcf9f1ebf\transformed\jetified-ui-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.8.0] C:\Users\elvis\.gradle\caches\transforms-3\5b5ae009aa5b829d690371cc233c1109\transformed\jetified-activity-ktx-1.8.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.8.0] C:\Users\elvis\.gradle\caches\transforms-3\5b5ae009aa5b829d690371cc233c1109\transformed\jetified-activity-ktx-1.8.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.8.0] C:\Users\elvis\.gradle\caches\transforms-3\9383651cf4ace650a49b7d6b07630407\transformed\jetified-activity-compose-1.8.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.8.0] C:\Users\elvis\.gradle\caches\transforms-3\9383651cf4ace650a49b7d6b07630407\transformed\jetified-activity-compose-1.8.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-wearable:18.1.0] C:\Users\elvis\.gradle\caches\transforms-3\0e9fe36d52182fa7a91e01e63523838e\transformed\jetified-play-services-wearable-18.1.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-wearable:18.1.0] C:\Users\elvis\.gradle\caches\transforms-3\0e9fe36d52182fa7a91e01e63523838e\transformed\jetified-play-services-wearable-18.1.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\elvis\.gradle\caches\transforms-3\a954d08b9dc783ac6d49892999b4d603\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\elvis\.gradle\caches\transforms-3\a954d08b9dc783ac6d49892999b4d603\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:18:5-43
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\424dc5c98f0d6813b10f5b0e46cdd88d\transformed\jetified-runtime-saveable-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\424dc5c98f0d6813b10f5b0e46cdd88d\transformed\jetified-runtime-saveable-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\4eb55d646f597f73353d9bfa1f276591\transformed\jetified-runtime-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\4eb55d646f597f73353d9bfa1f276591\transformed\jetified-runtime-release\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:18.0.1] C:\Users\elvis\.gradle\caches\transforms-3\0c98808f5d6b7f1a7f38f3ade9f2b340\transformed\jetified-play-services-tasks-18.0.1\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks:18.0.1] C:\Users\elvis\.gradle\caches\transforms-3\0c98808f5d6b7f1a7f38f3ade9f2b340\transformed\jetified-play-services-tasks-18.0.1\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\elvis\.gradle\caches\transforms-3\968e3f63c019edac6ab00343e3722e64\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\elvis\.gradle\caches\transforms-3\968e3f63c019edac6ab00343e3722e64\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:18:5-43
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\99e61e8db7dcbe59fc5b8a261a32c87b\transformed\jetified-customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\99e61e8db7dcbe59fc5b8a261a32c87b\transformed\jetified-customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.core:core-ktx:1.10.0] C:\Users\elvis\.gradle\caches\transforms-3\d311fd0c8b04fe4094c29d46805fd2a2\transformed\jetified-core-ktx-1.10.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.10.0] C:\Users\elvis\.gradle\caches\transforms-3\d311fd0c8b04fe4094c29d46805fd2a2\transformed\jetified-core-ktx-1.10.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\d499fb22bfa6c8e7c4df9f06d05e9731\transformed\fragment-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\d499fb22bfa6c8e7c4df9f06d05e9731\transformed\fragment-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.emoji2:emoji2:1.4.0] C:\Users\elvis\.gradle\caches\transforms-3\3e11cea6592bed0a8857ff06467e5e15\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.4.0] C:\Users\elvis\.gradle\caches\transforms-3\3e11cea6592bed0a8857ff06467e5e15\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\926c1a464dce2fae8212c17b11837f4a\transformed\jetified-autofill-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\926c1a464dce2fae8212c17b11837f4a\transformed\jetified-autofill-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\af6766f33b6b4a9acf54dc37b42eb13f\transformed\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\af6766f33b6b4a9acf54dc37b42eb13f\transformed\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\8265c245c6afff66777b3622c7fcfb19\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\8265c245c6afff66777b3622c7fcfb19\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\d23831a4f802fee28e5bac33f2f06f55\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\d23831a4f802fee28e5bac33f2f06f55\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\72a2e709a30c822fdfd23a94ecb69906\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\72a2e709a30c822fdfd23a94ecb69906\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\394a7c463284cb2f0b9a77fd40f828e0\transformed\coordinatorlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\394a7c463284cb2f0b9a77fd40f828e0\transformed\coordinatorlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\33d192275e0f57e42ddf099cd9f9742f\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\33d192275e0f57e42ddf099cd9f9742f\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\7309a71049fb7c8a752b25753e6a38b1\transformed\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\7309a71049fb7c8a752b25753e6a38b1\transformed\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\cd54d2b6188785b7286c9030a8ec56c1\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\cd54d2b6188785b7286c9030a8ec56c1\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\85d4732f2b8a91f12eac815b0185ed2b\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\85d4732f2b8a91f12eac815b0185ed2b\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\87c09349242d867101acc5b10ea81bdd\transformed\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\87c09349242d867101acc5b10ea81bdd\transformed\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.10.0] C:\Users\elvis\.gradle\caches\transforms-3\3a7dc360fa31fd08a77468c1f06dc45c\transformed\core-1.10.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.10.0] C:\Users\elvis\.gradle\caches\transforms-3\3a7dc360fa31fd08a77468c1f06dc45c\transformed\core-1.10.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\189c843ad152bc872197069ce0d04b14\transformed\lifecycle-livedata-2.6.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\189c843ad152bc872197069ce0d04b14\transformed\lifecycle-livedata-2.6.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\a25ba43e79045fcb7a5dd55323f81e05\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\a25ba43e79045fcb7a5dd55323f81e05\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\a4fa600c4a3edd171bcb93a0b8843018\transformed\lifecycle-runtime-2.6.2\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\a4fa600c4a3edd171bcb93a0b8843018\transformed\lifecycle-runtime-2.6.2\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\aa73122b54b6f65ce11ac1968628cc04\transformed\lifecycle-livedata-core-2.6.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\aa73122b54b6f65ce11ac1968628cc04\transformed\lifecycle-livedata-core-2.6.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\b523595b84f92f8624c8eb04a1e02e42\transformed\jetified-lifecycle-runtime-ktx-2.6.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\b523595b84f92f8624c8eb04a1e02e42\transformed\jetified-lifecycle-runtime-ktx-2.6.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\elvis\.gradle\caches\transforms-3\e11efabd5d7f8e649d71a3985a6f000b\transformed\jetified-savedstate-ktx-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\elvis\.gradle\caches\transforms-3\e11efabd5d7f8e649d71a3985a6f000b\transformed\jetified-savedstate-ktx-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\elvis\.gradle\caches\transforms-3\27948fdc25c58ace68afe5446ffb2d4c\transformed\jetified-savedstate-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\elvis\.gradle\caches\transforms-3\27948fdc25c58ace68afe5446ffb2d4c\transformed\jetified-savedstate-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\e9347ba76fcfed4294fcb34693552cc6\transformed\jetified-lifecycle-viewmodel-savedstate-2.6.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\e9347ba76fcfed4294fcb34693552cc6\transformed\jetified-lifecycle-viewmodel-savedstate-2.6.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\8d275dd39b0696aea227eeb54871beb2\transformed\lifecycle-viewmodel-2.6.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\8d275dd39b0696aea227eeb54871beb2\transformed\lifecycle-viewmodel-2.6.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\64b0def327625a8345e2afcb114c55ce\transformed\jetified-lifecycle-viewmodel-compose-2.6.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\64b0def327625a8345e2afcb114c55ce\transformed\jetified-lifecycle-viewmodel-compose-2.6.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\4d42cb9ae46eec7cc8d441cdef36d37d\transformed\jetified-lifecycle-viewmodel-ktx-2.6.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\4d42cb9ae46eec7cc8d441cdef36d37d\transformed\jetified-lifecycle-viewmodel-ktx-2.6.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\ec036be5f687d0b82cda868c1b1b6f3d\transformed\jetified-annotation-experimental-1.3.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\ec036be5f687d0b82cda868c1b1b6f3d\transformed\jetified-annotation-experimental-1.3.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\elvis\.gradle\caches\transforms-3\a97c9dbe9457db3f4121fb6ee58d1f31\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\elvis\.gradle\caches\transforms-3\a97c9dbe9457db3f4121fb6ee58d1f31\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\f4e1843d90033ea0c068d674e4acbfc2\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\f4e1843d90033ea0c068d674e4acbfc2\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\elvis\.gradle\caches\transforms-3\102a20012d53cc273426e12e49dd4195\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\elvis\.gradle\caches\transforms-3\102a20012d53cc273426e12e49dd4195\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\a949ec839006ce24a5448b0fa675dd49\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\a949ec839006ce24a5448b0fa675dd49\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\elvis\.gradle\caches\transforms-3\c6a0e08b9d51d8f8457afe1038a8e051\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\elvis\.gradle\caches\transforms-3\c6a0e08b9d51d8f8457afe1038a8e051\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\872d52598a70a293b590d74ec5bd0249\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\872d52598a70a293b590d74ec5bd0249\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\7a056ea5f7fba9ce54994cf833622075\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\7a056ea5f7fba9ce54994cf833622075\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\8dccbf1e5ca719e1f2b31eb2f665b7a6\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\8dccbf1e5ca719e1f2b31eb2f665b7a6\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\ab6ce99d7fcc9f32475ee0ccee25c61f\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\elvis\.gradle\caches\transforms-3\ab6ce99d7fcc9f32475ee0ccee25c61f\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+	android:targetSdkVersion
+		INJECTED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\elvis\ddev\hackathon\wear-os-samples-main\DataLayer\Wearable\src\main\AndroidManifest.xml
+activity#androidx.compose.ui.tooling.PreviewActivity
+ADDED from [androidx.compose.ui:ui-tooling-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\4705f2f1f1a48cf17778d8b335cd6cf7\transformed\jetified-ui-tooling-release\AndroidManifest.xml:23:9-25:39
+	android:exported
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\4705f2f1f1a48cf17778d8b335cd6cf7\transformed\jetified-ui-tooling-release\AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.5.3] C:\Users\elvis\.gradle\caches\transforms-3\4705f2f1f1a48cf17778d8b335cd6cf7\transformed\jetified-ui-tooling-release\AndroidManifest.xml:24:13-71
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\elvis\.gradle\caches\transforms-3\a954d08b9dc783ac6d49892999b4d603\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\elvis\.gradle\caches\transforms-3\a954d08b9dc783ac6d49892999b4d603\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:22:19-43
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\elvis\.gradle\caches\transforms-3\a954d08b9dc783ac6d49892999b4d603\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:21:19-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\elvis\.gradle\caches\transforms-3\a954d08b9dc783ac6d49892999b4d603\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:19-85
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.4.0] C:\Users\elvis\.gradle\caches\transforms-3\3e11cea6592bed0a8857ff06467e5e15\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\a25ba43e79045fcb7a5dd55323f81e05\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\a25ba43e79045fcb7a5dd55323f81e05\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\elvis\.gradle\caches\transforms-3\a97c9dbe9457db3f4121fb6ee58d1f31\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\elvis\.gradle\caches\transforms-3\a97c9dbe9457db3f4121fb6ee58d1f31\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.4.0] C:\Users\elvis\.gradle\caches\transforms-3\3e11cea6592bed0a8857ff06467e5e15\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.4.0] C:\Users\elvis\.gradle\caches\transforms-3\3e11cea6592bed0a8857ff06467e5e15\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.4.0] C:\Users\elvis\.gradle\caches\transforms-3\3e11cea6592bed0a8857ff06467e5e15\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.4.0] C:\Users\elvis\.gradle\caches\transforms-3\3e11cea6592bed0a8857ff06467e5e15\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.4.0] C:\Users\elvis\.gradle\caches\transforms-3\3e11cea6592bed0a8857ff06467e5e15\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.4.0] C:\Users\elvis\.gradle\caches\transforms-3\3e11cea6592bed0a8857ff06467e5e15\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.4.0] C:\Users\elvis\.gradle\caches\transforms-3\3e11cea6592bed0a8857ff06467e5e15\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:30:17-75
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.10.0] C:\Users\elvis\.gradle\caches\transforms-3\3a7dc360fa31fd08a77468c1f06dc45c\transformed\core-1.10.0\AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.10.0] C:\Users\elvis\.gradle\caches\transforms-3\3a7dc360fa31fd08a77468c1f06dc45c\transformed\core-1.10.0\AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.10.0] C:\Users\elvis\.gradle\caches\transforms-3\3a7dc360fa31fd08a77468c1f06dc45c\transformed\core-1.10.0\AndroidManifest.xml:23:9-81
+permission#com.example.android.wearable.datalayer.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.10.0] C:\Users\elvis\.gradle\caches\transforms-3\3a7dc360fa31fd08a77468c1f06dc45c\transformed\core-1.10.0\AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.10.0] C:\Users\elvis\.gradle\caches\transforms-3\3a7dc360fa31fd08a77468c1f06dc45c\transformed\core-1.10.0\AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.10.0] C:\Users\elvis\.gradle\caches\transforms-3\3a7dc360fa31fd08a77468c1f06dc45c\transformed\core-1.10.0\AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.10.0] C:\Users\elvis\.gradle\caches\transforms-3\3a7dc360fa31fd08a77468c1f06dc45c\transformed\core-1.10.0\AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.10.0] C:\Users\elvis\.gradle\caches\transforms-3\3a7dc360fa31fd08a77468c1f06dc45c\transformed\core-1.10.0\AndroidManifest.xml:26:22-94
+uses-permission#com.example.android.wearable.datalayer.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.10.0] C:\Users\elvis\.gradle\caches\transforms-3\3a7dc360fa31fd08a77468c1f06dc45c\transformed\core-1.10.0\AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.10.0] C:\Users\elvis\.gradle\caches\transforms-3\3a7dc360fa31fd08a77468c1f06dc45c\transformed\core-1.10.0\AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\a25ba43e79045fcb7a5dd55323f81e05\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\a25ba43e79045fcb7a5dd55323f81e05\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\elvis\.gradle\caches\transforms-3\a25ba43e79045fcb7a5dd55323f81e05\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\elvis\.gradle\caches\transforms-3\a6fc862a41f76f54967bf90fc1ab2940\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
