@@ -8,6 +8,8 @@ compose-compiler = "1.5.3"
 ktlint = "0.50.0"
 org-jetbrains-kotlin = "1.9.10"
 org-jetbrains-kotlinx = "1.7.3"
+mlkit-obj-detection = "17.0.0"
+mlkit-face-detection = "16.1.5"
 
 [libraries]
 android-desugarjdklibs = "com.android.tools:desugar_jdk_libs:2.0.3"
@@ -20,7 +22,9 @@ androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle" }
 compose-compiler = { module = "androidx.compose.compiler:compiler", version.ref = "compose-compiler" }
 compose-foundation = { module = "androidx.compose.foundation:foundation" }
+compose-material3 = { module = "androidx.compose.material3:material3" }
 compose-material = { module = "androidx.compose.material:material" }
+material-icons= "androidx.compose.material:material-icons-extended:1.5.1"
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 jacoco-ant = "org.jacoco:org.jacoco.ant:0.8.11"
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "org-jetbrains-kotlin" }
@@ -30,6 +34,17 @@ kotlinx-coroutines-play-services = { module = "org.jetbrains.kotlinx:kotlinx-cor
 playservices-wearable = "com.google.android.gms:play-services-wearable:18.1.0"
 wear-compose-foundation = { module = "androidx.wear.compose:compose-foundation", version.ref = "androidx-wear-compose" }
 wear-compose-material = { module = "androidx.wear.compose:compose-material", version.ref = "androidx-wear-compose" }
+object-detection = { group = "com.google.mlkit", name = "object-detection", version.ref = "mlkit-obj-detection" }
+object-detection-custom = { group = "com.google.mlkit", name = "object-detection-custom", version.ref = "mlkit-obj-detection" }
+face-detection = "com.google.mlkit:face-detection:16.1.5"
+
+camera-core = "androidx.camera:camera-core:1.3.4"
+camera-camera2 = "androidx.camera:camera-camera2:1.3.4"
+camera-lifecycle = "androidx.camera:camera-lifecycle:1.3.4"
+camera-view = "androidx.camera:camera-view:1.3.4"
+camera-extensions = "androidx.camera:camera-extensions:1.3.4"
+
+google-guava = "com.google.guava:guava:33.0.0-android"
 
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }

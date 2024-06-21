@@ -21,6 +21,9 @@
         android:name="android.hardware.camera"
         android:required="false" />
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
     <application
         android:allowBackup="true"
         android:fullBackupOnly="true"
@@ -32,7 +35,7 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.android.wearable.ui.MainActivity"
             android:exported="true"
             android:theme="@android:style/Theme.Material.Light.NoActionBar"
             android:taskAffinity=".main"
