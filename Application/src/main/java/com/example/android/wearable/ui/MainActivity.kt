@@ -34,6 +34,7 @@ import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.ImageProxy
+import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.CameraController
 import androidx.camera.view.LifecycleCameraController
 import androidx.compose.foundation.layout.Arrangement
@@ -61,11 +62,15 @@ import androidx.compose.ui.unit.dp
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.android.wearable.ui.components.CameraPreview
 import com.example.android.wearable.ui.components.PhotoBottomSheetContent
+import com.example.android.wearable.ui.viewmodels.CameraXViewModel
+import com.google.android.gms.common.annotation.KeepName
 import com.google.android.gms.wearable.Asset
 import com.google.android.gms.wearable.CapabilityClient
 import com.google.android.gms.wearable.PutDataMapRequest
@@ -96,6 +101,7 @@ import kotlinx.coroutines.withContext
  * While resumed, this activity also logs all interactions across the clients, which includes events
  * sent from this activity and from the watch(es).
  */
+@KeepName
 @SuppressLint("VisibleForTests")
 class MainActivity : ComponentActivity() {
 
@@ -132,7 +138,6 @@ class MainActivity : ComponentActivity() {
                 this, CAMERAX_PERMISSIONS, 0
             )
         }
-
 
         var count = 0
         var coordinates: Pair<Direction, ZLevel>
@@ -172,14 +177,6 @@ class MainActivity : ComponentActivity() {
 //                )
                 val scope = rememberCoroutineScope()
                 val scaffoldState = rememberBottomSheetScaffoldState()
-                val controller = remember {
-                    LifecycleCameraController(applicationContext).apply {
-                        setEnabledUseCases(
-                            CameraController.IMAGE_CAPTURE or
-                                CameraController.VIDEO_CAPTURE
-                        )
-                    }
-                }
 
                 BottomSheetScaffold(
                     scaffoldState = scaffoldState,
@@ -198,17 +195,13 @@ class MainActivity : ComponentActivity() {
                             .padding(padding)
                     ) {
                         CameraPreview(
-                            controller = controller,
                             modifier = Modifier
                                 .fillMaxSize()
                         )
 
                         IconButton(
                             onClick = {
-                                controller.cameraSelector =
-                                    if (controller.cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA) {
-                                        CameraSelector.DEFAULT_FRONT_CAMERA
-                                    } else CameraSelector.DEFAULT_BACK_CAMERA
+                                Log.d("MainActivity", "camera button clicked")
                             },
                             modifier = Modifier
                                 .offset(16.dp, 16.dp)
@@ -240,10 +233,10 @@ class MainActivity : ComponentActivity() {
                             }
                             IconButton(
                                 onClick = {
-                                    takePhotoFromCameraX(
-                                        controller = controller,
-                                        onPhotoTaken = clientDataViewModel::onPictureTaken
-                                    )
+//                                    takePhotoFromCameraX(
+//                                        controller = cameraXViewModel.getProcessCameraProvider(),
+//                                        onPhotoTaken = clientDataViewModel::onPictureTaken
+//                                    )
                                 }
                             ) {
                                 Icon(
@@ -332,39 +325,39 @@ class MainActivity : ComponentActivity() {
         takePhotoLauncher.launch(null)
     }
 
-    private fun takePhotoFromCameraX(
-        controller: LifecycleCameraController,
-        onPhotoTaken: (Bitmap) -> Unit
-    ) {
-        controller.takePicture(
-            ContextCompat.getMainExecutor(applicationContext),
-            object : ImageCapture.OnImageCapturedCallback() {
-                override fun onCaptureSuccess(image: ImageProxy) {
-                    super.onCaptureSuccess(image)
-
-                    val matrix = Matrix().apply {
-                        postRotate(image.imageInfo.rotationDegrees.toFloat())
-                    }
-                    val rotatedBitmap = Bitmap.createBitmap(
-                        image.toBitmap(),
-                        0,
-                        0,
-                        image.width,
-                        image.height,
-                        matrix,
-                        true
-                    )
-
-                    onPhotoTaken(rotatedBitmap)
-                }
-
-                override fun onError(exception: ImageCaptureException) {
-                    super.onError(exception)
-                    Log.e("Camera", "Couldn't take photo: ", exception)
-                }
-            }
-        )
-    }
+//    private fun takePhotoFromCameraX(
+//        controller: LifecycleCameraController,
+//        onPhotoTaken: (Bitmap) -> Unit
+//    ) {
+//        controller.takePicture(
+//            ContextCompat.getMainExecutor(applicationContext),
+//            object : ImageCapture.OnImageCapturedCallback() {
+//                override fun onCaptureSuccess(image: ImageProxy) {
+//                    super.onCaptureSuccess(image)
+//
+//                    val matrix = Matrix().apply {
+//                        postRotate(image.imageInfo.rotationDegrees.toFloat())
+//                    }
+//                    val rotatedBitmap = Bitmap.createBitmap(
+//                        image.toBitmap(),
+//                        0,
+//                        0,
+//                        image.width,
+//                        image.height,
+//                        matrix,
+//                        true
+//                    )
+//
+//                    onPhotoTaken(rotatedBitmap)
+//                }
+//
+//                override fun onError(exception: ImageCaptureException) {
+//                    super.onError(exception)
+//                    Log.e("Camera", "Couldn't take photo: ", exception)
+//                }
+//            }
+//        )
+//    }
 
 
     private fun sendPhoto() {
