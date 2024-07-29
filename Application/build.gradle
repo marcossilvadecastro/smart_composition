@@ -60,9 +60,13 @@ android {
 }
 
 dependencies {
-  def composeBom = platform(libs.androidx.compose.bom)
+    def composeBom = platform(libs.androidx.compose.bom)
 
   coreLibraryDesugaring libs.android.desugarjdklibs
+  implementation libs.mlkit.dml
+  implementation libs.object.detection
+  implementation libs.object.detection.custom
+  implementation libs.face.detection
 
   implementation composeBom
   implementation libs.kotlinx.coroutines.core

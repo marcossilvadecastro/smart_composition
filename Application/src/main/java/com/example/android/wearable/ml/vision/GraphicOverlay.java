@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.wearable.ui.components;
+package com.example.android.wearable.ml.vision;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
