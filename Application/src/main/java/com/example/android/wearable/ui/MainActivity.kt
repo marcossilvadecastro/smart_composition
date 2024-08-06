@@ -27,7 +27,6 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -80,12 +79,6 @@ class MainActivity : ComponentActivity() {
     }
 
     private val clientDataViewModel by viewModels<ClientDataViewModel>()
-
-    private val takePhotoLauncher = registerForActivityResult(
-        ActivityResultContracts.TakePicturePreview()
-    ) { bitmap ->
-        clientDataViewModel.onPictureTaken(bitmap = bitmap)
-    }
 
     private fun hasRequiredPermissions(): Boolean {
         return CAMERAX_PERMISSIONS.all {
@@ -212,43 +205,7 @@ class MainActivity : ComponentActivity() {
 
     private fun takePhoto() {
         if (!isCameraSupported) return
-        takePhotoLauncher.launch(null)
     }
-
-//    private fun takePhotoFromCameraX(
-//        controller: LifecycleCameraController,
-//        onPhotoTaken: (Bitmap) -> Unit
-//    ) {
-//        controller.takePicture(
-//            ContextCompat.getMainExecutor(applicationContext),
-//            object : ImageCapture.OnImageCapturedCallback() {
-//                override fun onCaptureSuccess(image: ImageProxy) {
-//                    super.onCaptureSuccess(image)
-//
-//                    val matrix = Matrix().apply {
-//                        postRotate(image.imageInfo.rotationDegrees.toFloat())
-//                    }
-//                    val rotatedBitmap = Bitmap.createBitmap(
-//                        image.toBitmap(),
-//                        0,
-//                        0,
-//                        image.width,
-//                        image.height,
-//                        matrix,
-//                        true
-//                    )
-//
-//                    onPhotoTaken(rotatedBitmap)
-//                }
-//
-//                override fun onError(exception: ImageCaptureException) {
-//                    super.onError(exception)
-//                    Log.e("Camera", "Couldn't take photo: ", exception)
-//                }
-//            }
-//        )
-//    }
-
 
     private fun sendPhoto() {
         lifecycleScope.launch {

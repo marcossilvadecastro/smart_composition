@@ -1,18 +1,22 @@
 package com.example.android.wearable.ui.components
 
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.Matrix
 import android.util.Log
 import android.widget.Toast
 import androidx.annotation.OptIn
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ExperimentalGetImage
 import androidx.camera.core.ImageAnalysis
+import androidx.camera.core.ImageCapture
+import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.ImageProxy
 import androidx.camera.core.Preview
+import androidx.camera.view.LifecycleCameraController
 import androidx.camera.view.PreviewView
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -114,3 +118,39 @@ fun CameraPreview(
         modifier = modifier
     )
 }
+
+private fun takePhoto(
+    context: Context,
+    controller: LifecycleCameraController,
+    onPhotoTaken: (Bitmap) -> Unit
+) {
+    controller.takePicture(
+        ContextCompat.getMainExecutor(context),
+        object : ImageCapture.OnImageCapturedCallback() {
+            override fun onCaptureSuccess(image: ImageProxy) {
+                super.onCaptureSuccess(image)
+
+                val matrix = Matrix().apply {
+                    postRotate(image.imageInfo.rotationDegrees.toFloat())
+                }
+                val rotatedBitmap = Bitmap.createBitmap(
+                    image.toBitmap(),
+                    0,
+                    0,
+                    image.width,
+                    image.height,
+                    matrix,
+                    true
+                )
+
+                onPhotoTaken(rotatedBitmap)
+            }
+
+            override fun onError(exception: ImageCaptureException) {
+                super.onError(exception)
+                Log.e("Camera", "Couldn't take photo: ", exception)
+            }
+        }
+    )
+}
+

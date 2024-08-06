@@ -95,9 +95,13 @@ fun MainApp(
 
                 IconButton(
                     onClick = {
-                       cameraSelector.value = if (cameraSelector.value == CameraSelector.DEFAULT_BACK_CAMERA) {
-                            CameraSelector.DEFAULT_FRONT_CAMERA
-                        } else CameraSelector.DEFAULT_BACK_CAMERA
+                        scope.launch {
+                            cameraSelector.value =
+                                if (cameraSelector.value == CameraSelector.DEFAULT_BACK_CAMERA) {
+                                    CameraSelector.DEFAULT_FRONT_CAMERA
+                                } else
+                                    CameraSelector.DEFAULT_BACK_CAMERA
+                        }
                     }
                 ) {
                     Icon(
