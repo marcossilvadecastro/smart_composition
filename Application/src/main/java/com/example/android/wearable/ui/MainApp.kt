@@ -16,102 +16,112 @@
 package com.example.android.wearable.ui
 
 import android.graphics.Bitmap
-import androidx.compose.foundation.Image
+import androidx.camera.core.CameraSelector
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Button
-import androidx.compose.material.Divider
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Cameraswitch
+import androidx.compose.material.icons.filled.PhotoCamera
+import androidx.compose.material3.BottomSheetScaffold
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.asImageBitmap
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.android.wearable.datalayer.R
+import com.example.android.wearable.ui.components.CameraPreview
+import com.example.android.wearable.ui.components.PhotoBottomSheetContent
+import kotlinx.coroutines.launch
 
 /**
  * The UI affording the actions the user can take, along with a list of the events and the image
  * to be sent to the wearable devices.
  */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainApp(
-    events: List<Event>,
-    image: Bitmap?,
-    isCameraSupported: Boolean,
+    images: List<Bitmap?>,
     onTakePhotoClick: () -> Unit,
-    onSendPhotoClick: () -> Unit,
-    onStartWearableActivityClick: () -> Unit
 ) {
-    LazyColumn(contentPadding = PaddingValues(16.dp)) {
-        item {
+
+    val scope = rememberCoroutineScope()
+    val scaffoldState = rememberBottomSheetScaffoldState()
+
+    val cameraSelector = remember {
+        mutableStateOf(CameraSelector.DEFAULT_FRONT_CAMERA)
+    }
+
+    BottomSheetScaffold(
+        scaffoldState = scaffoldState,
+        sheetPeekHeight = 0.dp,
+        sheetContent = {
+            PhotoBottomSheetContent(
+                bitmaps = images,
+                modifier = Modifier
+                    .fillMaxWidth()
+            )
+        }
+    ) { padding ->
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(padding)
+        ) {
+            CameraPreview(
+                modifier = Modifier
+                    .fillMaxSize(),
+                cameraSelector = cameraSelector.value
+            )
+
             Row(
-                verticalAlignment = Alignment.CenterVertically
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .align(Alignment.BottomCenter)
+                    .padding(64.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
             ) {
-                Column(Modifier.weight(1f)) {
-                    Button(
-                        onClick = onTakePhotoClick,
-                        enabled = isCameraSupported
-                    ) {
-                        Text(stringResource(id = R.string.take_photo))
+
+                IconButton(
+                    onClick = {
+                       cameraSelector.value = if (cameraSelector.value == CameraSelector.DEFAULT_BACK_CAMERA) {
+                            CameraSelector.DEFAULT_FRONT_CAMERA
+                        } else CameraSelector.DEFAULT_BACK_CAMERA
                     }
-                    Button(
-                        onClick = onSendPhotoClick,
-                        enabled = image != null
-                    ) {
-                        Text(stringResource(id = R.string.send_photo))
-                    }
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Cameraswitch,
+                        contentDescription = "Switch camera",
+                        modifier = Modifier.size(128.dp),
+                        tint = Color.White
+                    )
                 }
 
-                Box(modifier = Modifier.size(100.dp)) {
-                    if (image == null) {
-                        Image(
-                            painterResource(id = R.drawable.ic_content_picture),
-                            contentDescription = stringResource(
-                                id = R.string.photo_placeholder
-                            ),
-                            modifier = Modifier.fillMaxSize()
-                        )
-                    } else {
-                        Image(
-                            image.asImageBitmap(),
-                            contentDescription = stringResource(
-                                id = R.string.captured_photo
-                            ),
-                            modifier = Modifier.fillMaxSize()
-                        )
+                IconButton(
+                    onClick = {
+                        scope.launch { onTakePhotoClick() }
                     }
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.PhotoCamera,
+                        contentDescription = "Take photo",
+                        modifier = Modifier
+                            .size(128.dp),
+                        tint = Color.White
+                    )
                 }
             }
-            Divider()
-        }
-        item {
-            Button(onClick = onStartWearableActivityClick) {
-                Text(stringResource(id = R.string.start_wearable_activity))
-            }
-            Divider()
-        }
-        items(events) { event ->
-            Column {
-                Text(
-                    stringResource(id = event.title),
-                    style = MaterialTheme.typography.subtitle1
-                )
-                Text(
-                    event.text,
-                    style = MaterialTheme.typography.body2
-                )
-            }
-            Divider()
         }
     }
 }
@@ -120,36 +130,7 @@ fun MainApp(
 @Composable
 fun MainAppPreview() {
     MainApp(
-        events = listOf(
-            Event(
-                title = R.string.data_item_changed,
-                text = "Event 1"
-            ),
-            Event(
-                title = R.string.data_item_deleted,
-                text = "Event 2"
-            ),
-            Event(
-                title = R.string.data_item_unknown,
-                text = "Event 3"
-            ),
-            Event(
-                title = R.string.message_from_watch,
-                text = "Event 4"
-            ),
-            Event(
-                title = R.string.data_item_changed,
-                text = "Event 5"
-            ),
-            Event(
-                title = R.string.data_item_deleted,
-                text = "Event 6"
-            )
-        ),
-        image = null,
-        isCameraSupported = true,
+        images = listOf<Bitmap>(),
         onTakePhotoClick = {},
-        onSendPhotoClick = {},
-        onStartWearableActivityClick = {}
     )
 }

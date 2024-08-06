@@ -22,16 +22,20 @@ suspend fun Context.getCameraProvider(): ProcessCameraProvider =
     }
 
 fun Context.getObjectDetectorOptions(
-    prefKeyForMultipleObjects: String,
-    prefKeyForClassification: String,
     @DetectorMode mode: Int
 ): ObjectDetectorOptions {
     val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
 
     val enableMultipleObjects =
-        sharedPreferences.getBoolean(prefKeyForMultipleObjects, false)
+        sharedPreferences.getBoolean(
+            getString(R.string.pref_key_live_preview_object_detector_enable_multiple_objects),
+            false
+        )
     val enableClassification =
-        sharedPreferences.getBoolean(prefKeyForClassification, true)
+        sharedPreferences.getBoolean(
+            getString(R.string.pref_key_still_image_object_detector_enable_multiple_objects),
+            true
+        )
 
     val builder =
         ObjectDetectorOptions.Builder().setDetectorMode(mode)
@@ -44,9 +48,9 @@ fun Context.getObjectDetectorOptions(
     return builder.build()
 }
 
-fun Context.getCameraXTargetResolution(lensfacing: Int): Size? {
+fun Context.getCameraXTargetResolution(lensFacing: Int): Size? {
     val prefKey: String =
-        if (lensfacing == CameraSelector.LENS_FACING_BACK)
+        if (lensFacing == CameraSelector.LENS_FACING_BACK)
             getString(R.string.pref_key_camerax_rear_camera_target_resolution)
         else
             getString(R.string.pref_key_camerax_front_camera_target_resolution)
