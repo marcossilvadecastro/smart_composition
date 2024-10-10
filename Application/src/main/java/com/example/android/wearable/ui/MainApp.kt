@@ -15,8 +15,23 @@
  */
 package com.example.android.wearable.ui
 
+import android.content.ContentValues
+import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.ImageDecoder
+import android.graphics.Matrix
+import android.os.Build
+import android.provider.MediaStore
+import android.util.Log
 import androidx.camera.core.CameraSelector
+import androidx.camera.core.ImageCapture
+import androidx.camera.core.ImageCaptureException
+import androidx.camera.core.ImageProxy
+import androidx.camera.lifecycle.ProcessCameraProvider
+import androidx.camera.view.CameraController.IMAGE_CAPTURE
+import androidx.camera.view.CameraController.IMAGE_ANALYSIS
+import androidx.camera.view.LifecycleCameraController
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -27,6 +42,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Cameraswitch
 import androidx.compose.material.icons.filled.PhotoCamera
+import androidx.compose.material.icons.filled.SendAndArchive
 import androidx.compose.material3.BottomSheetScaffold
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -39,10 +55,16 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.decodeBitmap
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.android.wearable.ui.components.CameraPreview
 import com.example.android.wearable.ui.components.PhotoBottomSheetContent
+import kotlin.coroutines.resume
+import kotlin.coroutines.suspendCoroutine
 import kotlinx.coroutines.launch
 
 /**
@@ -52,9 +74,14 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainApp(
-    images: List<Bitmap?>,
-    onTakePhotoClick: () -> Unit,
+    clientDataViewModel: ClientDataViewModel,
+    isCameraSupported: Boolean,
+    sendPhoto: () -> Unit
 ) {
+
+    val isSendButtonEnabled = remember {
+        mutableStateOf(false)
+    }
 
     val scope = rememberCoroutineScope()
     val scaffoldState = rememberBottomSheetScaffoldState()
@@ -63,12 +90,18 @@ fun MainApp(
         mutableStateOf(CameraSelector.DEFAULT_FRONT_CAMERA)
     }
 
+    val context = LocalContext.current
+
+    val imageCapture = remember {
+        ImageCapture.Builder().build()
+    }
+
     BottomSheetScaffold(
         scaffoldState = scaffoldState,
         sheetPeekHeight = 0.dp,
         sheetContent = {
             PhotoBottomSheetContent(
-                bitmaps = images,
+                bitmaps = listOf(clientDataViewModel.image),
                 modifier = Modifier
                     .fillMaxWidth()
             )
@@ -82,7 +115,8 @@ fun MainApp(
             CameraPreview(
                 modifier = Modifier
                     .fillMaxSize(),
-                cameraSelector = cameraSelector.value
+                cameraSelector = cameraSelector.value,
+                imageCapture
             )
 
             Row(
@@ -114,7 +148,14 @@ fun MainApp(
 
                 IconButton(
                     onClick = {
-                        scope.launch { onTakePhotoClick() }
+                        scope.launch {
+                            if (!isCameraSupported) return@launch
+
+                            captureImage(imageCapture, context) {
+                                clientDataViewModel.onPictureTaken(it)
+                                isSendButtonEnabled.value = true
+                            }
+                        }
                     }
                 ) {
                     Icon(
@@ -125,16 +166,68 @@ fun MainApp(
                         tint = Color.White
                     )
                 }
+
+                IconButton(
+                    enabled = isSendButtonEnabled.value,
+                    onClick = {
+                        scope.launch {
+                            if (!isCameraSupported) return@launch
+                            sendPhoto()
+                        }
+                    }
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.SendAndArchive,
+                        contentDescription = "Send Photo",
+                        modifier = Modifier
+                            .size(128.dp),
+                        tint = Color.White
+                    )
+                }
             }
         }
     }
 }
 
-@Preview
-@Composable
-fun MainAppPreview() {
-    MainApp(
-        images = listOf<Bitmap>(),
-        onTakePhotoClick = {},
-    )
+private fun captureImage(
+    imageCapture: ImageCapture,
+    context: Context,
+    onPhotoTaken: (Bitmap) -> Unit
+) {
+    val name = "CameraxImage.jpeg"
+    val contentValues = ContentValues().apply {
+        put(MediaStore.MediaColumns.DISPLAY_NAME, name)
+        put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.P) {
+            put(MediaStore.Images.Media.RELATIVE_PATH, "Pictures/CameraX-Image")
+        }
+    }
+    val outputOptions = ImageCapture.OutputFileOptions
+        .Builder(
+            context.contentResolver,
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+            contentValues
+        )
+        .build()
+    imageCapture.takePicture(
+        outputOptions,
+        ContextCompat.getMainExecutor(context),
+        object : ImageCapture.OnImageSavedCallback {
+            override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
+                outputFileResults
+                    .savedUri
+                    ?.run {
+                        ImageDecoder.createSource(context.contentResolver, this)
+                            .decodeBitmap { _, source ->
+                                ImageDecoder.decodeBitmap(source)
+                            }
+                    }?.let {
+                        onPhotoTaken(it)
+                    }
+            }
+
+            override fun onError(exception: ImageCaptureException) {
+                Log.d(javaClass.simpleName, "Failed $exception")
+            }
+        })
 }

@@ -127,8 +127,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             MaterialTheme {
                 MainApp(
-                    images = listOf(clientDataViewModel.image),
-                    onTakePhotoClick = ::takePhoto,
+                    clientDataViewModel = clientDataViewModel,
+                    isCameraSupported = isCameraSupported,
+                    ::sendPhoto
                 )
             }
         }
@@ -201,10 +202,6 @@ class MainActivity : ComponentActivity() {
                 Log.d(TAG, "Starting activity failed: $exception")
             }
         }
-    }
-
-    private fun takePhoto() {
-        if (!isCameraSupported) return
     }
 
     private fun sendPhoto() {

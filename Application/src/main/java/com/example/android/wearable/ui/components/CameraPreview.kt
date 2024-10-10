@@ -35,7 +35,8 @@ import com.google.mlkit.vision.objects.defaults.ObjectDetectorOptions
 @Composable
 fun CameraPreview(
     modifier: Modifier = Modifier,
-    cameraSelector: CameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA
+    cameraSelector: CameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA,
+    imageCapture: ImageCapture
 ) {
     val lifecycleOwner = LocalLifecycleOwner.current
     val context = LocalContext.current
@@ -107,7 +108,7 @@ fun CameraPreview(
                 Toast.makeText(context, e.localizedMessage, Toast.LENGTH_SHORT).show()
             }
         }
-        cameraProvider.bindToLifecycle(lifecycleOwner, cameraSelector, analysisUseCase)
+        cameraProvider.bindToLifecycle(lifecycleOwner, cameraSelector, analysisUseCase, imageCapture)
     }
 
 
