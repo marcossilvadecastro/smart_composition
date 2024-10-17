@@ -24,6 +24,7 @@ import android.graphics.Matrix
 import android.os.Build
 import android.provider.MediaStore
 import android.util.Log
+import android.widget.Toast
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
@@ -78,11 +79,6 @@ fun MainApp(
     isCameraSupported: Boolean,
     sendPhoto: () -> Unit
 ) {
-
-    val isSendButtonEnabled = remember {
-        mutableStateOf(false)
-    }
-
     val scope = rememberCoroutineScope()
     val scaffoldState = rememberBottomSheetScaffoldState()
 
@@ -152,8 +148,9 @@ fun MainApp(
                             if (!isCameraSupported) return@launch
 
                             captureImage(imageCapture, context) {
+                                Toast.makeText(context, "Sending image", Toast.LENGTH_LONG).show()
                                 clientDataViewModel.onPictureTaken(it)
-                                isSendButtonEnabled.value = true
+                                sendPhoto()
                             }
                         }
                     }
@@ -161,24 +158,6 @@ fun MainApp(
                     Icon(
                         imageVector = Icons.Default.PhotoCamera,
                         contentDescription = "Take photo",
-                        modifier = Modifier
-                            .size(128.dp),
-                        tint = Color.White
-                    )
-                }
-
-                IconButton(
-                    enabled = isSendButtonEnabled.value,
-                    onClick = {
-                        scope.launch {
-                            if (!isCameraSupported) return@launch
-                            sendPhoto()
-                        }
-                    }
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.SendAndArchive,
-                        contentDescription = "Send Photo",
                         modifier = Modifier
                             .size(128.dp),
                         tint = Color.White
