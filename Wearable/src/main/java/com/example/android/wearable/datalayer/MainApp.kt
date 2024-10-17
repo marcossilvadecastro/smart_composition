@@ -17,7 +17,10 @@ package com.example.android.wearable.datalayer
 
 import android.graphics.Bitmap
 import android.graphics.Color
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -25,8 +28,15 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.ShaderBrush
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -47,8 +57,9 @@ import androidx.wear.compose.material.Vignette
 import androidx.wear.compose.material.VignettePosition
 import androidx.wear.compose.material.items
 import androidx.wear.compose.material.rememberScalingLazyListState
+import kotlinx.coroutines.launch
 
-@OptIn(ExperimentalWearMaterialApi::class)
+@OptIn(ExperimentalWearMaterialApi::class, ExperimentalFoundationApi::class)
 @Composable
 fun MainApp(
     events: List<Event>,
@@ -56,7 +67,10 @@ fun MainApp(
     onQueryOtherDevicesClicked: () -> Unit,
     onQueryMobileCameraClicked: () -> Unit
 ) {
-    val scalingLazyListState = rememberScalingLazyListState()
+    val scalingLazyListState = rememberScalingLazyListState(
+        initialCenterItemIndex = 0,
+        initialCenterItemScrollOffset = 0
+    )
 
     Scaffold(
         vignette = { Vignette(vignettePosition = VignettePosition.TopAndBottom) },
@@ -66,34 +80,18 @@ fun MainApp(
         ScalingLazyColumn(
             state = scalingLazyListState,
             contentPadding = PaddingValues(
-                horizontal = 8.dp,
-                vertical = 32.dp
+                horizontal = 16.dp,
+                vertical = 16.dp
             )
         ) {
-            item {
-                Button(
-                    onClick = onQueryOtherDevicesClicked,
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Text(text = stringResource(id = R.string.query_other_devices))
-                }
-            }
-
-            item {
-                Button(
-                    onClick = onQueryMobileCameraClicked,
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Text(text = stringResource(id = R.string.query_mobile_camera))
-                }
-            }
 
             item {
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .aspectRatio(1f)
-                        .padding(32.dp)
+                        .padding(horizontal = 16.dp)
+                        .aspectRatio(1f, matchHeightConstraintsFirst = true)
+                        .clip(RoundedCornerShape(5.dp))
                 ) {
                     if (image == null) {
                         Image(
@@ -124,22 +122,41 @@ fun MainApp(
                     )
                 }
             } else {
-                items(events) { event ->
+
+                item {
                     Card(
                         onClick = {},
                         enabled = false
                     ) {
                         Column {
                             Text(
-                                stringResource(id = event.title),
+                                stringResource(id = events.last().title),
                                 style = MaterialTheme.typography.title3
                             )
                             Text(
-                                event.text,
+                                events.last().text,
                                 style = MaterialTheme.typography.body2
                             )
                         }
                     }
+                }
+            }
+
+            item {
+                Button(
+                    onClick = onQueryOtherDevicesClicked,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(text = stringResource(id = R.string.query_other_devices))
+                }
+            }
+
+            item {
+                Button(
+                    onClick = onQueryMobileCameraClicked,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(text = stringResource(id = R.string.query_mobile_camera))
                 }
             }
         }
@@ -174,6 +191,10 @@ fun MainAppPreviewEvents() {
             Event(
                 title = R.string.data_item_deleted,
                 text = "Event 6"
+            ),
+            Event(
+                title = R.string.data_item_deleted,
+                text = "Event 7"
             )
         ),
         image = Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888).apply {
