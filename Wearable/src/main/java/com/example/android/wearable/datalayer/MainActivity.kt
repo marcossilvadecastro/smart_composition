@@ -35,6 +35,7 @@ class MainActivity : ComponentActivity() {
     private val dataClient by lazy { Wearable.getDataClient(this) }
     private val messageClient by lazy { Wearable.getMessageClient(this) }
     private val capabilityClient by lazy { Wearable.getCapabilityClient(this) }
+    private val nodesClient by lazy { Wearable.getNodeClient(this)}
 
     private val clientDataViewModel by viewModels<ClientDataViewModel>()
 
@@ -43,6 +44,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             MainApp(
+                isDeviceConnected = nodesClient.connectedNodes.isSuccessful,
                 events = clientDataViewModel.events,
                 image = clientDataViewModel.image,
                 onQueryOtherDevicesClicked = ::onQueryOtherDevicesClicked,

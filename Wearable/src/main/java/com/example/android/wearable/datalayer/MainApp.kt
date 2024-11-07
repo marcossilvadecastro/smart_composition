@@ -16,10 +16,8 @@
 package com.example.android.wearable.datalayer
 
 import android.graphics.Bitmap
-import android.graphics.Color
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.border
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -28,15 +26,12 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.pager.HorizontalPager
-import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.ShaderBrush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -44,9 +39,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.wear.compose.material.Button
-import androidx.wear.compose.material.Card
-import androidx.wear.compose.material.ExperimentalWearMaterialApi
 import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.PositionIndicator
 import androidx.wear.compose.material.Scaffold
@@ -55,13 +49,11 @@ import androidx.wear.compose.material.Text
 import androidx.wear.compose.material.TimeText
 import androidx.wear.compose.material.Vignette
 import androidx.wear.compose.material.VignettePosition
-import androidx.wear.compose.material.items
 import androidx.wear.compose.material.rememberScalingLazyListState
-import kotlinx.coroutines.launch
 
-@OptIn(ExperimentalWearMaterialApi::class, ExperimentalFoundationApi::class)
 @Composable
 fun MainApp(
+    isDeviceConnected: Boolean,
     events: List<Event>,
     image: Bitmap?,
     onQueryOtherDevicesClicked: () -> Unit,
@@ -115,29 +107,39 @@ fun MainApp(
 
             if (events.isEmpty()) {
                 item {
+                    val textId  = if(isDeviceConnected){
+                        R.string.waiting
+                    }else {
+                        R.string.no_device_connected
+                    }
                     Text(
-                        stringResource(id = R.string.waiting),
+                        stringResource(id = textId),
                         modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Center
+                        textAlign = TextAlign.Center,
+                        fontSize = 12.sp
                     )
                 }
             } else {
 
                 item {
-                    Card(
-                        onClick = {},
-                        enabled = false
+                    Column(
+                        modifier = Modifier
+                            .background(color = Color.Transparent)
+                            .fillParentMaxWidth(),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center,
+
                     ) {
-                        Column {
-                            Text(
-                                stringResource(id = events.last().title),
-                                style = MaterialTheme.typography.title3
-                            )
-                            Text(
-                                events.last().text,
-                                style = MaterialTheme.typography.body2
-                            )
-                        }
+                        Text(
+                            stringResource(id = events.last().title),
+                            style = MaterialTheme.typography.title3,
+                            fontSize = 8.sp
+                        )
+                        Text(
+                            events.last().text,
+                            style = MaterialTheme.typography.body2,
+                            fontSize = 12.sp
+                        )
                     }
                 }
             }
@@ -167,6 +169,7 @@ fun MainApp(
 @Composable
 fun MainAppPreviewEvents() {
     MainApp(
+        isDeviceConnected = false,
         events = listOf(
             Event(
                 title = R.string.data_item_changed,
@@ -198,7 +201,7 @@ fun MainAppPreviewEvents() {
             )
         ),
         image = Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888).apply {
-            eraseColor(Color.WHITE)
+            eraseColor(Color.White.value.toInt())
         },
         onQueryOtherDevicesClicked = {},
         onQueryMobileCameraClicked = {}
@@ -209,6 +212,7 @@ fun MainAppPreviewEvents() {
 @Composable
 fun MainAppPreviewEmpty() {
     MainApp(
+        isDeviceConnected = false,
         events = emptyList(),
         image = null,
         onQueryOtherDevicesClicked = {},
