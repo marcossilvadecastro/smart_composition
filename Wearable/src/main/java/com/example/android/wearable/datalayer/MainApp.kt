@@ -149,7 +149,10 @@ fun MainApp(
                     onClick = onQueryOtherDevicesClicked,
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    Text(text = stringResource(id = R.string.query_other_devices))
+                    Text(
+                        text = stringResource(id = R.string.query_other_devices),
+                        fontSize = 12.sp
+                    )
                 }
             }
 
@@ -158,7 +161,10 @@ fun MainApp(
                     onClick = onQueryMobileCameraClicked,
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    Text(text = stringResource(id = R.string.query_mobile_camera))
+                    Text(
+                        text = stringResource(id = R.string.query_mobile_camera),
+                        fontSize = 12.sp
+                    )
                 }
             }
         }
