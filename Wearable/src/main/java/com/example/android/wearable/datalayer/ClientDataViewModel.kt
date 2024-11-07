@@ -19,6 +19,7 @@ import android.annotation.SuppressLint
 import android.app.Application
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Matrix
 import androidx.annotation.StringRes
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
@@ -145,13 +146,20 @@ class ClientDataViewModel(
         )
     }
 
+    //TODO:  for some reason image capture sent image rotation with -90 degress
+    fun Bitmap.rotate(degrees: Float): Bitmap {
+        val matrix = Matrix().apply { postRotate(degrees) }
+        return Bitmap.createBitmap(this, 0, 0, width, height, matrix, true)
+    }
+
     private suspend fun loadBitmap(asset: Asset?): Bitmap? {
         if (asset == null) return null
         val response =
             Wearable.getDataClient(getApplication<Application>()).getFdForAsset(asset).await()
         return response.inputStream.use { inputStream ->
             withContext(Dispatchers.IO) {
-                BitmapFactory.decodeStream(inputStream)
+                val bitmap = BitmapFactory.decodeStream(inputStream)
+                bitmap.rotate(270.0f)
             }
         }
     }

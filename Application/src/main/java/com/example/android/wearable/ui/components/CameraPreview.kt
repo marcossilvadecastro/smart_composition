@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Matrix
 import android.util.Log
+import android.view.Surface
 import android.widget.Toast
 import androidx.annotation.OptIn
 import androidx.camera.core.CameraSelector
@@ -88,13 +89,18 @@ fun CameraPreview(
         ) { imageProxy: ImageProxy ->
             val isImageFlipped = currentLensFace == CameraSelector.LENS_FACING_FRONT
             val rotationDegrees = imageProxy.imageInfo.rotationDegrees
+
             if (rotationDegrees == 0 || rotationDegrees == 180) {
+                // TODO
+                imageCapture.targetRotation = Surface.ROTATION_90
                 graphicOverlay.setImageSourceInfo(
                     imageProxy.width,
                     imageProxy.height,
                     isImageFlipped
                 )
             } else {
+                // TODO
+                imageCapture.targetRotation = Surface.ROTATION_270
                 graphicOverlay.setImageSourceInfo(
                     imageProxy.height,
                     imageProxy.width,
@@ -108,7 +114,12 @@ fun CameraPreview(
                 Toast.makeText(context, e.localizedMessage, Toast.LENGTH_SHORT).show()
             }
         }
-        cameraProvider.bindToLifecycle(lifecycleOwner, cameraSelector, analysisUseCase, imageCapture)
+        cameraProvider.bindToLifecycle(
+            lifecycleOwner,
+            cameraSelector,
+            analysisUseCase,
+            imageCapture
+        )
     }
 
 
@@ -117,41 +128,6 @@ fun CameraPreview(
             previewView
         },
         modifier = modifier
-    )
-}
-
-private fun takePhoto(
-    context: Context,
-    controller: LifecycleCameraController,
-    onPhotoTaken: (Bitmap) -> Unit
-) {
-    controller.takePicture(
-        ContextCompat.getMainExecutor(context),
-        object : ImageCapture.OnImageCapturedCallback() {
-            override fun onCaptureSuccess(image: ImageProxy) {
-                super.onCaptureSuccess(image)
-
-                val matrix = Matrix().apply {
-                    postRotate(image.imageInfo.rotationDegrees.toFloat())
-                }
-                val rotatedBitmap = Bitmap.createBitmap(
-                    image.toBitmap(),
-                    0,
-                    0,
-                    image.width,
-                    image.height,
-                    matrix,
-                    true
-                )
-
-                onPhotoTaken(rotatedBitmap)
-            }
-
-            override fun onError(exception: ImageCaptureException) {
-                super.onError(exception)
-                Log.e("Camera", "Couldn't take photo: ", exception)
-            }
-        }
     )
 }
 

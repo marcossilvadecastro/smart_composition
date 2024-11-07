@@ -17,10 +17,7 @@ package com.example.android.wearable.ui
 
 import android.content.ContentValues
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.ImageDecoder
-import android.graphics.Matrix
+import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
 import android.util.Log
@@ -28,11 +25,6 @@ import android.widget.Toast
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
-import androidx.camera.core.ImageProxy
-import androidx.camera.lifecycle.ProcessCameraProvider
-import androidx.camera.view.CameraController.IMAGE_CAPTURE
-import androidx.camera.view.CameraController.IMAGE_ANALYSIS
-import androidx.camera.view.LifecycleCameraController
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -43,7 +35,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Cameraswitch
 import androidx.compose.material.icons.filled.PhotoCamera
-import androidx.compose.material.icons.filled.SendAndArchive
 import androidx.compose.material3.BottomSheetScaffold
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -57,15 +48,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.decodeBitmap
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.android.wearable.ui.components.CameraPreview
 import com.example.android.wearable.ui.components.PhotoBottomSheetContent
-import kotlin.coroutines.resume
-import kotlin.coroutines.suspendCoroutine
 import kotlinx.coroutines.launch
 
 /**
@@ -89,7 +75,9 @@ fun MainApp(
     val context = LocalContext.current
 
     val imageCapture = remember {
-        ImageCapture.Builder().build()
+        ImageCapture
+            .Builder()
+            .build()
     }
 
     BottomSheetScaffold(
@@ -97,7 +85,7 @@ fun MainApp(
         sheetPeekHeight = 0.dp,
         sheetContent = {
             PhotoBottomSheetContent(
-                bitmaps = listOf(clientDataViewModel.image),
+                imageUri = clientDataViewModel.imageUri,
                 modifier = Modifier
                     .fillMaxWidth()
             )
@@ -147,9 +135,9 @@ fun MainApp(
                         scope.launch {
                             if (!isCameraSupported) return@launch
 
-                            captureImage(imageCapture, context) {
+                            captureImage(imageCapture, context) {uri, rotation ->
                                 Toast.makeText(context, "Sending image", Toast.LENGTH_LONG).show()
-                                clientDataViewModel.onPictureTaken(it)
+                                clientDataViewModel.onPictureTaken(uri, rotation)
                                 sendPhoto()
                             }
                         }
@@ -171,7 +159,7 @@ fun MainApp(
 private fun captureImage(
     imageCapture: ImageCapture,
     context: Context,
-    onPhotoTaken: (Bitmap) -> Unit
+    onPhotoTaken: (Uri?, rotation: Int) -> Unit
 ) {
     val name = "CameraxImage.jpeg"
     val contentValues = ContentValues().apply {
@@ -193,18 +181,8 @@ private fun captureImage(
         ContextCompat.getMainExecutor(context),
         object : ImageCapture.OnImageSavedCallback {
             override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
-                outputFileResults
-                    .savedUri
-                    ?.run {
-                        ImageDecoder.createSource(context.contentResolver, this)
-                            .decodeBitmap { _, source ->
-                                ImageDecoder.decodeBitmap(source)
-                            }
-                    }?.let {
-                        onPhotoTaken(it)
-                    }
+                onPhotoTaken(outputFileResults.savedUri, imageCapture.targetRotation)
             }
-
             override fun onError(exception: ImageCaptureException) {
                 Log.d(javaClass.simpleName, "Failed $exception")
             }

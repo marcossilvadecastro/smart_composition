@@ -16,7 +16,7 @@
 package com.example.android.wearable.ui
 
 import android.annotation.SuppressLint
-import android.graphics.Bitmap
+import android.net.Uri
 import androidx.annotation.StringRes
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
@@ -51,7 +51,10 @@ class ClientDataViewModel :
     /**
      * The currently captured image (if any), available to send to the wearable devices.
      */
-    var image by mutableStateOf<Bitmap?>(null)
+    var imageUri by mutableStateOf<Uri?>(null)
+        private set
+
+    var imageRotation by mutableStateOf<Int>(0)
         private set
 
     @SuppressLint("VisibleForTests")
@@ -90,8 +93,9 @@ class ClientDataViewModel :
         )
     }
 
-    fun onPictureTaken(bitmap: Bitmap?) {
-        image = bitmap ?: return
+    fun onPictureTaken(uri: Uri?, rotation: Int) {
+        imageUri = uri ?: return
+        imageRotation = rotation
     }
 }
 

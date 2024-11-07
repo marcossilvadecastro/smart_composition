@@ -21,7 +21,6 @@ package com.example.android.wearable.ui
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -40,11 +39,9 @@ import com.google.android.gms.wearable.Asset
 import com.google.android.gms.wearable.CapabilityClient
 import com.google.android.gms.wearable.PutDataMapRequest
 import com.google.android.gms.wearable.Wearable
-import java.io.ByteArrayOutputStream
 import java.time.Duration
 import java.time.Instant
 import kotlin.coroutines.cancellation.CancellationException
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
@@ -98,7 +95,6 @@ class MainActivity : ComponentActivity() {
             )
         }
 
-        var count = 0
         var coordinates: Pair<Direction, ZLevel>
 
         lifecycleScope.launch {
@@ -115,11 +111,8 @@ class MainActivity : ComponentActivity() {
                     // Update when we are triggering sending the count
                     lastTriggerTime = Instant.now()
 //                    sendCount(count)
-                    coordinates = getLiveSmartCompositionDirections(count)
+                    coordinates = getLiveSmartCompositionDirections()
                     sendLiveSmartCompositionDirection(coordinates)
-
-                    // Increment the count to send next time
-                    count++
                 }
             }
         }
@@ -207,10 +200,11 @@ class MainActivity : ComponentActivity() {
     private fun sendPhoto() {
         lifecycleScope.launch {
             try {
-                val image = clientDataViewModel.image ?: return@launch
-                val imageAsset = image.toAsset()
+                val imageUri = clientDataViewModel.imageUri ?: return@launch
+                val imageAsset =  Asset.createFromUri(imageUri)
                 val request = PutDataMapRequest.create(IMAGE_PATH).apply {
                     dataMap.putAsset(IMAGE_KEY, imageAsset)
+                    dataMap.putInt(IMAGE_ROTATION_KEY, clientDataViewModel.imageRotation)
                     dataMap.putLong(TIME_KEY, Instant.now().epochSecond)
                 }
                     .asPutDataRequest()
@@ -245,21 +239,9 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    /**
-     * Converts the [Bitmap] to an asset, compress it to a png image in a background thread.
-     */
-    private suspend fun Bitmap.toAsset(): Asset =
-        withContext(Dispatchers.Default) {
-            ByteArrayOutputStream().use { byteStream ->
-                compress(Bitmap.CompressFormat.PNG, 100, byteStream)
-                Asset.createFromBytes(byteStream.toByteArray())
-            }
-        }
+    private fun getLiveSmartCompositionDirections(): Pair<Direction, ZLevel> {
 
-    private suspend fun getLiveSmartCompositionDirections(count: Int): Pair<Direction, ZLevel> {
-        //TODO: Get this pair of directions from the Live Smart Composition Algorithm
-//        return Pair(Direction.values()[count % 8], ZLevel.UP)
-        return Pair(Direction.values()[count % 8], ZLevel.values()[count % 3])
+        return Pair(Direction.entries.first(), ZLevel.entries.first())
     }
 
     private suspend fun sendLiveSmartCompositionDirection(coordinates: Pair<Direction, ZLevel>) {
@@ -291,6 +273,7 @@ class MainActivity : ComponentActivity() {
         private const val COUNT_PATH = "/count"
         private const val IMAGE_PATH = "/image"
         private const val IMAGE_KEY = "photo"
+        private const val IMAGE_ROTATION_KEY = "photo_rotation"
         private const val TIME_KEY = "time"
         private const val COUNT_KEY = "count"
         private const val CAMERA_CAPABILITY = "camera"
