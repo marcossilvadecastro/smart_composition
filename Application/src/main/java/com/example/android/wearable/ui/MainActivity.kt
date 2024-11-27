@@ -34,6 +34,8 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.example.android.wearable.data.Direction
+import com.example.android.wearable.data.ZLevel
 import com.google.android.gms.common.annotation.KeepName
 import com.google.android.gms.wearable.Asset
 import com.google.android.gms.wearable.CapabilityClient
@@ -95,8 +97,6 @@ class MainActivity : ComponentActivity() {
             )
         }
 
-        var coordinates: Pair<Direction, ZLevel>
-
         lifecycleScope.launch {
             lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 // Set the initial trigger such that the first count will happen in one second.
@@ -110,8 +110,7 @@ class MainActivity : ComponentActivity() {
                     )
                     // Update when we are triggering sending the count
                     lastTriggerTime = Instant.now()
-//                    sendCount(count)
-                    coordinates = getLiveSmartCompositionDirections()
+                    val coordinates = clientDataViewModel.getLiveSmartCompositionDirections()
                     sendLiveSmartCompositionDirection(coordinates)
                 }
             }
@@ -201,12 +200,14 @@ class MainActivity : ComponentActivity() {
         lifecycleScope.launch {
             try {
                 val imageUri = clientDataViewModel.imageUri ?: return@launch
-                val imageAsset =  Asset.createFromUri(imageUri)
-                val request = PutDataMapRequest.create(IMAGE_PATH).apply {
-                    dataMap.putAsset(IMAGE_KEY, imageAsset)
-                    dataMap.putInt(IMAGE_ROTATION_KEY, clientDataViewModel.imageRotation)
-                    dataMap.putLong(TIME_KEY, Instant.now().epochSecond)
-                }
+                val imageAsset = Asset.createFromUri(imageUri)
+                val request = PutDataMapRequest
+                    .create(IMAGE_PATH)
+                    .apply {
+                        dataMap.putAsset(IMAGE_KEY, imageAsset)
+                        dataMap.putInt(IMAGE_ROTATION_KEY, clientDataViewModel.imageRotation)
+                        dataMap.putLong(TIME_KEY, Instant.now().epochSecond)
+                    }
                     .asPutDataRequest()
                     .setUrgent()
 
@@ -221,35 +222,14 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    private suspend fun sendCount(count: Int) {
-        try {
-            val request = PutDataMapRequest.create(COUNT_PATH).apply {
-                dataMap.putInt(COUNT_KEY, count)
-            }
-                .asPutDataRequest()
-                .setUrgent()
-
-            val result = dataClient.putDataItem(request).await()
-
-            Log.d(TAG, "DataItem saved: $result")
-        } catch (cancellationException: CancellationException) {
-            throw cancellationException
-        } catch (exception: Exception) {
-            Log.d(TAG, "Saving DataItem failed: $exception")
-        }
-    }
-
-    private fun getLiveSmartCompositionDirections(): Pair<Direction, ZLevel> {
-
-        return Pair(Direction.entries.first(), ZLevel.entries.first())
-    }
-
     private suspend fun sendLiveSmartCompositionDirection(coordinates: Pair<Direction, ZLevel>) {
         try {
-            val request = PutDataMapRequest.create(COORDINATE_PATH).apply {
-                dataMap.putInt(DIRECTION_KEY, coordinates.first.ordinal)
-                dataMap.putInt(Z_LEVEL_KEY, coordinates.second.ordinal)
-            }
+            val request = PutDataMapRequest
+                .create(COORDINATE_PATH)
+                .apply {
+                    dataMap.putInt(DIRECTION_KEY, coordinates.first.index)
+                    dataMap.putInt(Z_LEVEL_KEY, coordinates.second.index)
+                }
                 .asPutDataRequest()
                 .setUrgent()
 
@@ -270,12 +250,10 @@ class MainActivity : ComponentActivity() {
         private const val TAG = "MainActivity"
 
         private const val START_ACTIVITY_PATH = "/start-activity"
-        private const val COUNT_PATH = "/count"
         private const val IMAGE_PATH = "/image"
         private const val IMAGE_KEY = "photo"
         private const val IMAGE_ROTATION_KEY = "photo_rotation"
         private const val TIME_KEY = "time"
-        private const val COUNT_KEY = "count"
         private const val CAMERA_CAPABILITY = "camera"
         private const val WEAR_CAPABILITY = "wear"
 
@@ -287,21 +265,6 @@ class MainActivity : ComponentActivity() {
         private val countInterval = Duration.ofSeconds(5)
 
         private val pollTimeMs = Duration.ofMillis(500)
-
-        private enum class Direction {
-            NORTH,
-            SOUTH,
-            WEST,
-            EAST,
-            NORTHWEST,
-            NORTHEAST,
-            SOUTHWEST,
-            SOUTHEAST
-        }
-
-        private enum class ZLevel {
-            LEVELED, UP, DOWN
-        }
 
         private val CAMERAX_PERMISSIONS = arrayOf(
             Manifest.permission.CAMERA,

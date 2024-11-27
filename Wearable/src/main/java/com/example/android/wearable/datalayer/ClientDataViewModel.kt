@@ -44,6 +44,9 @@ import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 
 import android.util.Log
+import androidx.compose.runtime.mutableIntStateOf
+import com.example.android.wearable.datalayer.data.toDirection
+import com.example.android.wearable.datalayer.data.toZLevel
 
 class ClientDataViewModel(
     application: Application
@@ -66,25 +69,15 @@ class ClientDataViewModel(
     var image by mutableStateOf<Bitmap?>(null)
         private set
 
+    /**
+     * The currently received image (if any), available to display.
+     */
+    private var rotationDegrees by mutableIntStateOf(0)
+
     private var loadPhotoJob: Job = Job().apply { complete() }
 
     @SuppressLint("VisibleForTests")
     override fun onDataChanged(dataEvents: DataEventBuffer) {
-        // Add all events to the event log
-//        _events.addAll(
-//            dataEvents.map { dataEvent ->
-//                val title = when (dataEvent.type) {
-//                    DataEvent.TYPE_CHANGED -> R.string.data_item_changed
-//                    DataEvent.TYPE_DELETED -> R.string.data_item_deleted
-//                    else -> R.string.data_item_unknown
-//                }
-//
-//                Event(
-//                    title = title,
-//                    text = dataEvent.dataItem.toString()
-//                )
-//            }
-//        )
 
         // Do additional work for specific events
         dataEvents.forEach { dataEvent ->
@@ -95,10 +88,12 @@ class ClientDataViewModel(
                         DataLayerListenerService.IMAGE_PATH -> {
                             loadPhotoJob.cancel()
                             loadPhotoJob = viewModelScope.launch {
+                                val item = DataMapItem.fromDataItem(dataEvent.dataItem).dataMap
+
+                                rotationDegrees = item.getInt(DataLayerListenerService.IMAGE_ROTATION_KEY)
+
                                 image = loadBitmap(
-                                    DataMapItem.fromDataItem(dataEvent.dataItem)
-                                        .dataMap
-                                        .getAsset(DataLayerListenerService.IMAGE_KEY)
+                                    item.getAsset(DataLayerListenerService.IMAGE_KEY)
                                 )
                             }
                         }
@@ -107,20 +102,22 @@ class ClientDataViewModel(
             }
             when (dataEvent.dataItem.uri.path) {
                 DataLayerListenerService.COORDINATE_PATH -> {
-                    val title = when (dataEvent.type) {
-                    DataEvent.TYPE_CHANGED -> R.string.data_item_changed
-                    DataEvent.TYPE_DELETED -> R.string.data_item_deleted
-                    else -> R.string.data_item_unknown
-                    }
                     _events.add(
                         Event(
-                            title = title,
-                            text = "Dir: " + DataMapItem.fromDataItem(dataEvent.dataItem)
-                                .dataMap.getInt(DataLayerListenerService.DIRECTION_KEY)
-                                .toString() +
-                                " Z: "  + DataMapItem.fromDataItem(dataEvent.dataItem)
-                                .dataMap.getInt(DataLayerListenerService.Z_LEVEL_KEY)
+                            title = DataMapItem
+                                .fromDataItem(dataEvent.dataItem)
+                                .dataMap
+                                .getInt(DataLayerListenerService.DIRECTION_KEY)
+                                .toDirection()
                                 .toString()
+                                .lowercase(),
+                            text = DataMapItem
+                                .fromDataItem(dataEvent.dataItem)
+                                .dataMap
+                                .getInt(DataLayerListenerService.Z_LEVEL_KEY)
+                                .toZLevel()
+                                .toString()
+                                .lowercase()
                         )
                     )
                 }
@@ -129,25 +126,25 @@ class ClientDataViewModel(
     }
 
     override fun onMessageReceived(messageEvent: MessageEvent) {
-        _events.add(
-            Event(
-                title = R.string.message,
-                text = messageEvent.toString()
-            )
-        )
+//        _events.add(
+//            Event(
+//                title =  R.string.message,
+//                text = messageEvent.toString()
+//            )
+//        )
     }
 
     override fun onCapabilityChanged(capabilityInfo: CapabilityInfo) {
-        _events.add(
-            Event(
-                title = R.string.capability_changed,
-                text = capabilityInfo.toString()
-            )
-        )
+//        _events.add(
+//            Event(
+//                title =  R.string.capability_changed,
+//                text = capabilityInfo.toString()
+//            )
+//        )
     }
 
-    //TODO:  for some reason image capture sent image rotation with -90 degress
     fun Bitmap.rotate(degrees: Float): Bitmap {
+        Log.d(javaClass.simpleName, "Roation degrees: $degrees")
         val matrix = Matrix().apply { postRotate(degrees) }
         return Bitmap.createBitmap(this, 0, 0, width, height, matrix, true)
     }
@@ -159,7 +156,7 @@ class ClientDataViewModel(
         return response.inputStream.use { inputStream ->
             withContext(Dispatchers.IO) {
                 val bitmap = BitmapFactory.decodeStream(inputStream)
-                bitmap.rotate(270.0f)
+                bitmap.rotate(rotationDegrees.toFloat())
             }
         }
     }
@@ -173,6 +170,6 @@ class ClientDataViewModel(
  * A data holder describing a client event.
  */
 data class Event(
-    @StringRes val title: Int,
+    val title: String,
     val text: String
 )

@@ -107,9 +107,9 @@ fun MainApp(
 
             if (events.isEmpty()) {
                 item {
-                    val textId  = if(isDeviceConnected){
+                    val textId = if (isDeviceConnected) {
                         R.string.waiting
-                    }else {
+                    } else {
                         R.string.no_device_connected
                     }
                     Text(
@@ -129,9 +129,9 @@ fun MainApp(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center,
 
-                    ) {
+                        ) {
                         Text(
-                            stringResource(id = events.last().title),
+                            events.last().title,
                             style = MaterialTheme.typography.title3,
                             fontSize = 8.sp
                         )
@@ -178,31 +178,31 @@ fun MainAppPreviewEvents() {
         isDeviceConnected = false,
         events = listOf(
             Event(
-                title = R.string.data_item_changed,
+                title = stringResource(id = R.string.data_item_changed),
                 text = "Event 1"
             ),
             Event(
-                title = R.string.data_item_deleted,
+                title = stringResource(id = R.string.data_item_deleted),
                 text = "Event 2"
             ),
             Event(
-                title = R.string.data_item_unknown,
+                title = stringResource(id = R.string.data_item_unknown),
                 text = "Event 3"
             ),
             Event(
-                title = R.string.message,
+                title = stringResource(id = R.string.message),
                 text = "Event 4"
             ),
             Event(
-                title = R.string.data_item_changed,
+                title = stringResource(id = R.string.data_item_changed),
                 text = "Event 5"
             ),
             Event(
-                title = R.string.data_item_deleted,
+                title = stringResource(id = R.string.data_item_deleted),
                 text = "Event 6"
             ),
             Event(
-                title = R.string.data_item_deleted,
+                title = stringResource(id = R.string.data_item_deleted),
                 text = "Event 7"
             )
         ),

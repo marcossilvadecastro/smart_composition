@@ -50,6 +50,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
+import com.example.android.wearable.data.ImageInfo
 import com.example.android.wearable.ui.components.CameraPreview
 import com.example.android.wearable.ui.components.PhotoBottomSheetContent
 import kotlinx.coroutines.launch
@@ -80,6 +81,10 @@ fun MainApp(
             .build()
     }
 
+    val imageInfo: ImageInfo = remember {
+        ImageInfo(rotationDegrees = 0)
+    }
+
     BottomSheetScaffold(
         scaffoldState = scaffoldState,
         sheetPeekHeight = 0.dp,
@@ -100,7 +105,9 @@ fun MainApp(
                 modifier = Modifier
                     .fillMaxSize(),
                 cameraSelector = cameraSelector.value,
-                imageCapture
+                imageCapture,
+                imageInfo,
+                viewModel = clientDataViewModel
             )
 
             Row(
@@ -135,9 +142,9 @@ fun MainApp(
                         scope.launch {
                             if (!isCameraSupported) return@launch
 
-                            captureImage(imageCapture, context) {uri, rotation ->
+                            captureImage(imageCapture, context) { uri ->
                                 Toast.makeText(context, "Sending image", Toast.LENGTH_LONG).show()
-                                clientDataViewModel.onPictureTaken(uri, rotation)
+                                clientDataViewModel.onPictureTaken(uri, imageInfo.rotationDegrees)
                                 sendPhoto()
                             }
                         }
@@ -159,7 +166,7 @@ fun MainApp(
 private fun captureImage(
     imageCapture: ImageCapture,
     context: Context,
-    onPhotoTaken: (Uri?, rotation: Int) -> Unit
+    onPhotoTaken: (Uri?) -> Unit
 ) {
     val name = "CameraxImage.jpeg"
     val contentValues = ContentValues().apply {
@@ -181,8 +188,9 @@ private fun captureImage(
         ContextCompat.getMainExecutor(context),
         object : ImageCapture.OnImageSavedCallback {
             override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
-                onPhotoTaken(outputFileResults.savedUri, imageCapture.targetRotation)
+                onPhotoTaken(outputFileResults.savedUri)
             }
+
             override fun onError(exception: ImageCaptureException) {
                 Log.d(javaClass.simpleName, "Failed $exception")
             }

@@ -20,9 +20,9 @@ import android.content.Context
 import android.util.Log
 import com.example.android.wearable.ml.vision.GraphicOverlay
 import com.example.android.wearable.ml.vision.VisionProcessorBase
+import com.example.android.wearable.ui.ClientDataViewModel
 import com.google.android.gms.tasks.Task
 import com.google.mlkit.vision.common.InputImage
-import com.google.mlkit.vision.demo.kotlin.objectdetector.ObjectGraphic
 import com.google.mlkit.vision.objects.DetectedObject
 import com.google.mlkit.vision.objects.ObjectDetection
 import com.google.mlkit.vision.objects.ObjectDetector
@@ -30,7 +30,11 @@ import com.google.mlkit.vision.objects.ObjectDetectorOptionsBase
 import java.io.IOException
 
 /** A processor to run object detector.  */
-class ObjectDetectorProcessor(context: Context, options: ObjectDetectorOptionsBase) :
+class ObjectDetectorProcessor(
+    private val viewModel: ClientDataViewModel,
+    context: Context,
+    options: ObjectDetectorOptionsBase
+) :
   VisionProcessorBase<List<DetectedObject>>(context) {
 
   private val detector: ObjectDetector = ObjectDetection.getClient(options)
@@ -54,7 +58,7 @@ class ObjectDetectorProcessor(context: Context, options: ObjectDetectorOptionsBa
 
   override fun onSuccess(results: List<DetectedObject>, graphicOverlay: GraphicOverlay) {
     for (result in results) {
-      graphicOverlay.add(ObjectGraphic(graphicOverlay, result))
+      graphicOverlay.add(ObjectGraphic(graphicOverlay, result, viewModel))
     }
   }
 

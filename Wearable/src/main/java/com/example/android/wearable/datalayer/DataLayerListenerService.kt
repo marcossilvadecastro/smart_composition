@@ -112,24 +112,10 @@ class DataLayerListenerService : WearableListenerService() {
         const val COUNT_PATH = "/count"
         const val IMAGE_PATH = "/image"
         const val IMAGE_KEY = "photo"
+        const val IMAGE_ROTATION_KEY = "photo_rotation"
 
         const val COORDINATE_PATH = "/coordinate"
         const val DIRECTION_KEY = "direction"
         const val Z_LEVEL_KEY = "z_level"
-
-        enum class Direction {
-            NORTH,
-            SOUTH,
-            WEST,
-            EAST,
-            NORTHWEST,
-            NORTHEAST,
-            SOUTHWEST,
-            SOUTHEAST
-        }
-
-        enum class ZLevel {
-            UP, DOWN
-        }
     }
 }

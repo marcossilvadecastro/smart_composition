@@ -1,20 +1,14 @@
 package com.example.android.wearable.ui.components
 
-import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.Matrix
 import android.util.Log
-import android.view.Surface
 import android.widget.Toast
 import androidx.annotation.OptIn
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ExperimentalGetImage
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageCapture
-import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.ImageProxy
 import androidx.camera.core.Preview
-import androidx.camera.view.LifecycleCameraController
 import androidx.camera.view.PreviewView
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -24,11 +18,13 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
+import com.example.android.wearable.data.ImageInfo
 import com.example.android.wearable.ext.getCameraProvider
 import com.example.android.wearable.ext.getCameraXTargetResolution
 import com.example.android.wearable.ext.getObjectDetectorOptions
 import com.example.android.wearable.ml.vision.GraphicOverlay
 import com.example.android.wearable.ml.vision.objectdetector.ObjectDetectorProcessor
+import com.example.android.wearable.ui.ClientDataViewModel
 import com.google.mlkit.common.MlKitException
 import com.google.mlkit.vision.objects.defaults.ObjectDetectorOptions
 
@@ -37,7 +33,9 @@ import com.google.mlkit.vision.objects.defaults.ObjectDetectorOptions
 fun CameraPreview(
     modifier: Modifier = Modifier,
     cameraSelector: CameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA,
-    imageCapture: ImageCapture
+    imageCapture: ImageCapture,
+    imageInfo: ImageInfo,
+    viewModel: ClientDataViewModel
 ) {
     val lifecycleOwner = LocalLifecycleOwner.current
     val context = LocalContext.current
@@ -69,7 +67,7 @@ fun CameraPreview(
         val objectDetectorOptions = context.getObjectDetectorOptions(
             ObjectDetectorOptions.STREAM_MODE
         )
-        val imageProcessor = ObjectDetectorProcessor(context, objectDetectorOptions)
+        val imageProcessor = ObjectDetectorProcessor(viewModel, context, objectDetectorOptions)
 
         val builder = ImageAnalysis.Builder()
 
@@ -88,25 +86,13 @@ fun CameraPreview(
             ContextCompat.getMainExecutor(context)
         ) { imageProxy: ImageProxy ->
             val isImageFlipped = currentLensFace == CameraSelector.LENS_FACING_FRONT
-            val rotationDegrees = imageProxy.imageInfo.rotationDegrees
+            imageInfo.rotationDegrees = imageProxy.imageInfo.rotationDegrees
+            graphicOverlay.setImageSourceInfo(
+                imageProxy.width,
+                imageProxy.height,
+                isImageFlipped
+            )
 
-            if (rotationDegrees == 0 || rotationDegrees == 180) {
-                // TODO
-                imageCapture.targetRotation = Surface.ROTATION_90
-                graphicOverlay.setImageSourceInfo(
-                    imageProxy.width,
-                    imageProxy.height,
-                    isImageFlipped
-                )
-            } else {
-                // TODO
-                imageCapture.targetRotation = Surface.ROTATION_270
-                graphicOverlay.setImageSourceInfo(
-                    imageProxy.height,
-                    imageProxy.width,
-                    isImageFlipped
-                )
-            }
             try {
                 imageProcessor.processImageProxy(imageProxy, graphicOverlay)
             } catch (e: MlKitException) {

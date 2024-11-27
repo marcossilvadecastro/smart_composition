@@ -23,6 +23,8 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import com.example.android.wearable.data.Direction
+import com.example.android.wearable.data.ZLevel
 import com.example.android.wearable.datalayer.R
 import com.google.android.gms.wearable.CapabilityClient
 import com.google.android.gms.wearable.CapabilityInfo
@@ -54,8 +56,10 @@ class ClientDataViewModel :
     var imageUri by mutableStateOf<Uri?>(null)
         private set
 
-    var imageRotation by mutableStateOf<Int>(0)
+    var imageRotation by mutableStateOf(0)
         private set
+
+    private var smartCompositionDirection by mutableStateOf(Direction.NONE to ZLevel.NONE)
 
     @SuppressLint("VisibleForTests")
     override fun onDataChanged(dataEvents: DataEventBuffer) {
@@ -96,6 +100,14 @@ class ClientDataViewModel :
     fun onPictureTaken(uri: Uri?, rotation: Int) {
         imageUri = uri ?: return
         imageRotation = rotation
+    }
+
+    fun getLiveSmartCompositionDirections(): Pair<Direction, ZLevel> {
+        return smartCompositionDirection
+    }
+
+    fun putSmartCompositionDirection(direction: Direction, zLevel: ZLevel) {
+        smartCompositionDirection = direction to zLevel
     }
 }
 
